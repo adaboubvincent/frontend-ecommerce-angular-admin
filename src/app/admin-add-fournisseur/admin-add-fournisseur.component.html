@@ -1,0 +1,68 @@
+
+
+
+
+<form>
+    <div class="form-group">
+      <label for="nom">Nom du fournisseur : </label>
+      <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="Enter le nom"
+      [formControl]="nom" />
+    </div>
+    <div *ngIf="!modeModify" [hidden]="!nom.valid || !nom.pristine" class="alert alert-danger">
+        Le nom est obligatoire
+    </div>
+    <div *ngIf="modeModify" [hidden]="nom.valid" class="alert alert-danger">
+        Le nom est obligatoire
+    </div>
+
+    
+    <div class="form-group">
+      <label for="telephone">Téléphone : </label>
+      <input type="number" class="form-control"  id="telephone" name="telephone" placeholder="Téléphone du fournisseur" 
+      [formControl]="telephone"  />
+    </div>
+    <div *ngIf="!modeModify" [hidden]="!telephone.valid || !telephone.pristine" class="alert alert-danger">
+        Le telephone est obligatoire
+    </div>
+    <div *ngIf="modeModify" [hidden]="telephone.valid" class="alert alert-danger">
+        La telephone est obligatoire
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email : </label>
+        <input type="email" class="form-control"  id="email" name="email" placeholder="Mail du fournisseur" 
+        [formControl]="email"  />
+      </div>
+      <div *ngIf="!modeModify" [hidden]="!email.valid || !email.pristine" class="alert alert-danger">
+          La email est obligatoire
+      </div>
+      <div *ngIf="modeModify" [hidden]="email.valid" class="alert alert-danger">
+        La telephone est obligatoire
+    </div>
+
+    <div class="form-group">
+        <label for="adresse">Adresse : </label>
+        <input type="text" class="form-control"  id="adresse" name="adresse" placeholder="Adresse du fournisseur" 
+        [formControl]="adresse"  />
+    </div>
+    <div *ngIf="!modeModify" [hidden]="!adresse.valid || !adresse.pristine" class="alert alert-danger">
+        L'adresse est obligatoire
+    </div>
+    <div *ngIf="modeModify" [hidden]="adresse.valid" class="alert alert-danger">
+        L'adresse est obligatoire
+    </div>
+
+    <div class="form-group">
+        <div class="form-check form-switch" id="checkbox">
+            <input type="checkbox" class="form-check-input"  id="estPerson" name="estPerson" [formControl]="estPerson"  />
+            <label for="estPerson" class="form-check-label"> Boutique</label>
+        </div>
+    </div>
+
+
+    <button [disabled]="!nom.valid || !telephone.valid || !email.valid || !adresse.valid" type="submit" class="btn class-bg" (click)="addFournisseur()" *ngIf="!modeModify" >Ajouter un fournisseur</button>
+
+    <button [disabled]="!nom.valid || !telephone.valid || !email.valid || !adresse.valid" type="submit" class="btn class-bg" (click)="editFournisseur(idFournisseur)" *ngIf="modeModify" >Modifier ce fournisseur</button>
+  </form>
+
+

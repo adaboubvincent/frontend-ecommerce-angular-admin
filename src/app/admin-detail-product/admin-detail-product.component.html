@@ -1,0 +1,27 @@
+
+<!-- <img *ngFor="let im of images" src="{{URL_BASE}}{{im.image}}" id="{{im.id}}" (click)="showOnImageClick(im.id)" alt="" class="image-view">
+ -->
+<div class="row justify-content-around">
+    <div class="col" id="image-detail">
+        <div class="justify-content-start">
+            <div class="card" *ngFor="let im of images" class="image-detail-single" >
+                <img width="100" height="100" src="{{URL_BASE}}{{im?.image}}" id="{{im?.id}}" (click)="showOnImageClick(im?.id)" title="{{produit?.nom}}-image-{{im.id}}" alt="{{produit?.nom}}-image-{{im.id}}" />
+                <i-bs name="trash-fill" class="text-danger margin-left margin-right-i" (click)="deleteImage(im?.id)" ></i-bs>
+                <div class="espace-element-bottom"></div>
+            </div>
+             
+        </div>
+    </div>
+    <div class="col">
+        <img  width="450" height="439" src="{{URL_BASE}}{{imageChoice?.image}}" id="{{imageChoice?.id}}" (click)="showOnImageClick(imageChoice?.id)" title="{{produit?.nom}}-image-{{imageChoice.id}}" alt="{{produit?.nom}}-image-{{imageChoice.id}}" />
+    </div>
+    <div class="col">
+        <h3 id="title-produit">{{produit.nom}}</h3>
+        <p id="p-categorie"><img width="50" height="50" src="../../assets/images/mayaki/category.png" title="catégorie" alt="catégorie" id="categorie" /> {{categorie.nom}} </p>
+        <p><span>Prix sur le marché : </span><span class="barre-prix"> {{produit.prix}} </span></p>
+        <p><span>Prix actuel : </span><span> {{produit.diminu_price}} </span></p>
+        <p><span>Quantité totale : </span><span> {{produit.quantite}} </span></p>
+        <p>{{produit.caracteristique}}</p>
+        
+    </div>
+</div>

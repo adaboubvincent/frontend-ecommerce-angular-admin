@@ -1,0 +1,72 @@
+
+
+
+<div class="display-elements">
+    <div id="ajout-text">
+        <h2 *ngIf="commandes.length !== 0">Liste des commandes</h2>
+        <h2 *ngIf="commandes.length === 0">Auncune commande enrégistrée</h2>
+    </div>
+</div>
+
+
+
+<div class="contenir-personne"></div>
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>PTH</th>
+                <th>TVA</th>
+                <th>TTC</th>
+                <th>Produits</th>
+                <th>Etat</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let commande of commandes" >
+                <th>{{commande.date | date}}</th>
+                <td>{{commande.pth}} CFA</td>
+                <td>{{commande.tva}} CFA</td>
+                <td>{{commande.get_prix_total_final_panier}} CFA</td>
+                <td>
+                    <select>
+                        <optgroup>
+                            <option *ngFor="let pr of commande.produitAcommandes">
+                                {{pr.produit?.nom}} 
+                                (<span *ngIf="pr.produit?.diminu_price">{{pr.produit?.diminu_price}}</span><span *ngIf="!pr.produit?.diminu_price">{{pr.produit?.prix}}</span> * {{pr.quantite}})
+                            </option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button [ngClass]="{
+                            'btn btn-danger dropdown-toggle': !commande.livraison?.estLivrer,
+                            'btn btn-success dropdown-toggle': commande.livraison?.estLivrer
+                            }" 
+                            type="button" id="dropdownMenuButton" 
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                          <span *ngIf="!commande.livraison?.estLivrer">Pas encore livrée</span>
+                          <span *ngIf="commande.livraison?.estLivrer">Est livrée</span>
+                          
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item bg-danger" 
+                            style="cursor: pointer; color: white;"
+                            (click)="nonLivrer(commande.livraison?.id)"  >Pas encore livrée</a>
+                          <a class="dropdown-item bg-success" 
+                            style="cursor: pointer; color: white;"
+                            (click)="estLivrer(commande.livraison?.id)" >Est livrée</a>
+                        </div>
+                      </div>
+                    <br />
+                    <span>{{commande.livraison?.date | date}}</span>
+                </td>
+                <td><i-bs name="trash-fill" class="text-danger margin-left" style="cursor: pointer;" width="1rem" height="1rem"></i-bs></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

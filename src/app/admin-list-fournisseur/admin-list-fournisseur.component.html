@@ -1,0 +1,53 @@
+<div>
+        
+
+    <div class="display-elements">
+        <div id="ajout-text">
+            <h2 *ngIf="fournisseurs.length !== 0">Liste des fournisseurs</h2>
+            <h2 *ngIf="fournisseurs.length === 0">Aucun fournisseur trouvé</h2>
+        </div>
+    </div>
+
+
+<!--     <div class="contenir-personne"></div>
+    <div class="row" *ngFor="let fn of fournisseurs; let i=index"  >
+        <div class="col-sm-4" >
+            <a href="#{{fn.nom}}-{{fn.email}}" class="no-action" (click)="noAction(i)" data-toggle="modal" data-target="#exampleModalCenter" ><img class="rounded-circle" width="75" height="75" src="../../assets/images/mayaki/user_001.jpg" title="Profile" alt="Profile"></a>
+        </div>
+        <div class="col-sm-6" id="center-text">
+            <span class="sub-contenir">{{fn.nom}} {{fn.email}} {{fn.telephone}} {{fn.adresse}} </span>
+        </div>
+        <div class="col-sm-2" id="center-trois-poits">
+            <i-bs name="trash-fill" class="text-danger margin-left" (click)="deleteAuteur(aut.id)" ></i-bs>
+            <i-bs name="pencil-square" class="text-primary margin-left" width="2rem" height="2rem" (click)="showEditPage(i)" ></i-bs>
+        </div>
+        
+    </div>
+    <div class="contenir-personne"></div>
+ -->
+ <!-- row justify-content-between  -->
+ <div class="row justify-content-around">
+    <div class="card" *ngFor="let fn of fournisseurs; let i=index" >
+        <img class="card-img-top" width="75" height="225" src="../../assets/images/mayaki/user_001.jpg" title="{{fn.nom}}" alt="{{fn.nom}}" />
+        <div class="card-body">
+          <h5 class="card-title">{{fn.nom}}</h5>
+          <p class="card-text">{{fn.email}}</p>
+          <p class="card-text">{{fn.telephone}}</p>
+          <p class="card-text">{{fn.adresse}}</p>
+
+        </div>
+        <div class="card-footer">
+            <div class="elements-left">
+                <small *ngIf="!fn.estPerson" class="text-muted">Une personne</small>
+                <small *ngIf="fn.estPerson" class="text-muted">Une boutique</small>
+            </div>
+            <div class="elements-right">
+                <i-bs name="trash-fill" style="cursor: pointer;" class="text-danger margin-left margin-right-i" (click)="deleteFournisseur(fn?.id)" ></i-bs>
+                <i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="2rem" (click)="showPageEdit(fn?.id)" ></i-bs>
+            </div>
+        </div>
+        <div class="contenir-espace-left"></div>
+      </div>
+     
+    </div>
+</div>

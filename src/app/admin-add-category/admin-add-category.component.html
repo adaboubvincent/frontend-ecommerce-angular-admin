@@ -1,0 +1,47 @@
+
+
+
+
+<form>
+    <div class="form-group">
+      <label for="nom">Nom de la catégorie : </label>
+      <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="Enter le nom"
+      [formControl]="nom" />
+    </div>
+    <div *ngIf="!modeModify" [hidden]="!nom.valid || !nom.pristine" class="alert alert-danger">
+        Le nom est obligatoire
+    </div>
+    <div *ngIf="modeModify" [hidden]="nom.valid" class="alert alert-danger">
+        Le nom est obligatoire
+    </div>
+
+    
+    <div class="form-group">
+      <label for="description">Description de la catégorie : </label>
+      <input type="text" class="form-control"  id="description" name="description" placeholder="Votre description" 
+      [formControl]="description"  />
+    </div>
+    <div *ngIf="!modeModify" [hidden]="!description.valid || !description.pristine" class="alert alert-danger">
+        La description est obligatoire
+    </div>
+    <div *ngIf="modeModify" [hidden]="description.valid" class="alert alert-danger">
+        La description est obligatoire
+    </div>
+
+    <div class="form-group">
+        <label for="categorieMere">Catégorie mère : </label>
+        <select name="categorieMere" id="categorieMere" [formControl]="categorieMere"  class="form-control" >
+            <option [ngValue]="categorieEmpty"  class="form-control"></option>
+            <option *ngIf="modeModify" [ngValue]="categorie.categorieMere"  class="form-control" selected>{{categorie.categorieMere?.nom}}</option>
+            
+            <option  *ngFor="let cat of categories" [ngValue]="cat"  class="form-control" >{{cat.nom}}</option>
+        </select>
+      </div>
+
+    
+    <button [disabled]="!nom.valid || !description.valid" type="submit" class="btn class-bg" (click)="addCategorie()" *ngIf="!modeModify" >Ajouter une catégorie</button>
+
+    <button [disabled]="!nom.valid || !description.valid" type="submit" class="btn class-bg" (click)="editCategorie(idCategorie)" *ngIf="modeModify" >Modifier la catégorie</button>
+  </form>
+
+
