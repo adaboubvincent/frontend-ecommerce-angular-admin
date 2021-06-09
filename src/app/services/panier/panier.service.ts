@@ -6,6 +6,7 @@ import { PanierProduitACommander } from 'src/app/models/PanierProduitACommander'
 import { ProduitACommander } from 'src/app/models/ProduitACommander';
 import { Text } from 'src/app/models/Text';
 import { DaoService } from '../dao/dao.service';
+import { NotificationsService } from 'angular2-notifications';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class PanierService extends DaoService<Panier> {
   panierProduitACommander = new Subject<PanierProduitACommander>();
   getPrixTotalPanierSubject = new Subject<any>();
 
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(http: HttpClient, service: NotificationsService) {
+    super(http, service);
    }
 
 

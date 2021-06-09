@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { Commande } from '../models/Commande';
 import { User } from '../models/User';
+import { CommandeService } from '../services/commande/commande.service';
 import { SecurityService } from '../services/user/security.service';
 
 @Component({
@@ -11,13 +13,25 @@ import { SecurityService } from '../services/user/security.service';
 })
 export class AdminBaseComponent implements OnInit {
   adminLogin: User;
-  constructor(private route: Router, private securityService: SecurityService) {
+  numberOrderNotDeliver: number = 0;
+  constructor(private route: Router, private securityService: SecurityService, 
+    private commandeService: CommandeService) {
     this.adminLogin = new User();
     this.adminLogin.username = "Inconnu";
     this.adminLogin.email = "Inconnue";
   }
 
   ngOnInit(): void {
+    this.commandeService.commandes.subscribe((cats: Commande[]) => {
+      this.numberOrderNotDeliver = 0;
+      cats.forEach((item, index) => {
+        if(cats[index].livraison?.estLivrer === false){
+          this.numberOrderNotDeliver++;
+        }
+      })
+    });
+    this.commandeService.emitGetCommandes();
+
     this.securityService.user(localStorage.getItem('token')).subscribe((res: User) => {
       this.adminLogin = res;
     }, (error) => {
@@ -28,6 +42,8 @@ export class AdminBaseComponent implements OnInit {
       localStorage.setItem('is_superuser', "");
       this.securityService.notificationAjouter("Vous êtes en mode déconnecté !", "danger");
     });
+
+    
     
   }
 

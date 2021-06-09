@@ -48,7 +48,11 @@ export class AdminAddCategoryComponent implements OnInit {
     this.affecterData();
     this.categoryService.addT("ajout-categorie/",this.categorie).subscribe(res => {
       console.log(res);
+      this.categoryService.notificationAjouter("La categorie est ajoutée avec succès", "success");
       this.ngOnInit();
+    },(error) => {
+      console.log(error);
+      this.categoryService.notificationAjouter(error?.error?.text, "warning")
     });
     this.messageAlert("La categorie "+this.categorie?.nom+" est bien ajoutée");
     this.categorie = new Categorie();
@@ -62,7 +66,10 @@ export class AdminAddCategoryComponent implements OnInit {
       return item.id === Number(id)
     })?.id+"/", this.categorie).subscribe(res => {
       let i = res;
+      this.categoryService.notificationAjouter("La categorie est modifiée avec succès", "success");
       this.ngOnInit();
+    },(error) => {
+      this.categoryService.notificationAjouter(error?.error?.text, "warning")
     });
 
     this.categorie = new Categorie();

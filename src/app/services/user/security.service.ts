@@ -5,14 +5,15 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/models/User';
 import { UserToken } from 'src/app/models/UserToken';
 import { DaoService } from '../dao/dao.service';
+import { NotificationsService } from 'angular2-notifications';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SecurityService  extends DaoService<User> {
 
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(http: HttpClient, service: NotificationsService) {
+    super(http, service);
   }
 
   register(user: User): Observable<UserToken> {

@@ -5,14 +5,15 @@ import { Subject } from 'rxjs';
 import { Image } from 'src/app/models/Image';
 import { DaoService } from '../dao/dao.service';
 import { NotifierService } from 'angular-notifier';
+import { NotificationsService } from 'angular2-notifications';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService extends DaoService<Image> {
 
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(http: HttpClient, service: NotificationsService) {
+    super(http, service);
    }
 
    postImage(id: number | undefined, formData: FormData){

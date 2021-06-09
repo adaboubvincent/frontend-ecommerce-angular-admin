@@ -4,7 +4,7 @@
 
 <form>
     <div class="form-group">
-      <label for="nom">Nom du fournisseur : </label>
+      <label for="nom" class="text text-dark">Nom du fournisseur : </label>
       <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="Enter le nom"
       [formControl]="nom" />
     </div>
@@ -17,7 +17,7 @@
 
     
     <div class="form-group">
-      <label for="telephone">Téléphone : </label>
+      <label for="telephone" class="text text-dark">Téléphone : </label>
       <input type="number" class="form-control"  id="telephone" name="telephone" placeholder="Téléphone du fournisseur" 
       [formControl]="telephone"  />
     </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="form-group">
-        <label for="email">Email : </label>
+        <label for="email" class="text text-dark">Email : </label>
         <input type="email" class="form-control"  id="email" name="email" placeholder="Mail du fournisseur" 
         [formControl]="email"  />
       </div>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="form-group">
-        <label for="adresse">Adresse : </label>
+        <label for="adresse" class="text text-dark">Adresse : </label>
         <input type="text" class="form-control"  id="adresse" name="adresse" placeholder="Adresse du fournisseur" 
         [formControl]="adresse"  />
     </div>
@@ -60,9 +60,9 @@
     </div>
 
 
-    <button [disabled]="!nom.valid || !telephone.valid || !email.valid || !adresse.valid" type="submit" class="btn class-bg" (click)="addFournisseur()" *ngIf="!modeModify" >Ajouter un fournisseur</button>
+    <button [disabled]="!nom.valid || !telephone.valid || !email.valid || !adresse.valid" type="submit" class="btn class-bg bg-primary" (click)="addFournisseur()" *ngIf="!modeModify" >Ajouter un fournisseur</button>
 
-    <button [disabled]="!nom.valid || !telephone.valid || !email.valid || !adresse.valid" type="submit" class="btn class-bg" (click)="editFournisseur(idFournisseur)" *ngIf="modeModify" >Modifier ce fournisseur</button>
+    <button [disabled]="!nom.valid || !telephone.valid || !email.valid || !adresse.valid" type="submit" class="btn class-bg bg-primary" (click)="editFournisseur(idFournisseur)" *ngIf="modeModify" >Modifier ce fournisseur</button>
   </form>
 
 

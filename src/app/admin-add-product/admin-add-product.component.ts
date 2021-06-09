@@ -95,9 +95,11 @@ export class AdminAddProductComponent implements OnInit {
        }
      }
      
-
+      this.produitService.notificationAjouter("Le produit est ajouté avec succès", "success");
       this.ngOnInit();
 
+    },(error) => {
+      this.produitService.notificationAjouter(error?.error?.text, "warning")
     });
     this.messageAlert("Le produit "+this.produit?.nom+" est bien ajouté");
     this.produit = new Produit();
@@ -118,8 +120,10 @@ export class AdminAddProductComponent implements OnInit {
         }
       }
 
-
+      this.produitService.notificationAjouter("Le produit est modifié avec succès", "success");
       this.ngOnInit();
+    },(error) => {
+      this.produitService.notificationAjouter(error?.error?.text, "warning")
     });
 
     

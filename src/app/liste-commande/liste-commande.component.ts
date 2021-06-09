@@ -5,6 +5,7 @@ import { CommandeService } from '../services/commande/commande.service';
 import { LivraisonService } from '../services/livraison/livraison.service';
 import { PanierService } from '../services/panier/panier.service';
 import { Livraison } from '../models/Livraison';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-liste-commande',
@@ -17,6 +18,7 @@ export class ListeCommandeComponent implements OnInit {
   valeurChoose: string = "";
 
   commandes: Commande[] = [];
+
 
   constructor(private commandeService: CommandeService, private panierService: PanierService,
     private livraisonService: LivraisonService) { }
@@ -32,9 +34,21 @@ export class ListeCommandeComponent implements OnInit {
           this.commandes[index].get_prix_total_panier = resP?.get_prix_total_panier;
           this.commandes[index].get_prix_total_final_panier = resP?.get_prix_total_final_panier;
         });
+
+        
       })
     });
     this.commandeService.emitGetCommandes();
+
+   /*  // Basic example
+  $(document).ready(function () {
+  $('#dtBasicExample').DataTable({
+  "searching": false // false to disable search (or any other option)
+  });
+  $('.dataTables_length').addClass('bs-select'); 
+  });*/
+
+
   }
 
   messageAlert(message: string){
@@ -78,5 +92,6 @@ export class ListeCommandeComponent implements OnInit {
     }
     
   }
+
 
 }

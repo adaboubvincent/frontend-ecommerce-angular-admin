@@ -51,7 +51,10 @@ export class AdminAddFournisseurComponent implements OnInit {
     this.affecterData();
     this.fournisseurService.addT("ajout-fournisseur/",this.fournisseur).subscribe(res => {
       console.log(res);
+      this.fournisseurService.notificationAjouter("Le fournisseur est ajouté avec succès", "success");
       this.ngOnInit();
+    },(error) => {
+      this.fournisseurService.notificationAjouter(error?.error?.text, "warning")
     });
     this.messageAlert("Le fournisseur "+this.fournisseur?.nom+" est bien ajouté");
     this.fournisseur = new Fournisseur();
@@ -65,7 +68,10 @@ export class AdminAddFournisseurComponent implements OnInit {
       return item.id === Number(id)
     })?.id+"/", this.fournisseur).subscribe(res => {
       let i = res;
+      this.fournisseurService.notificationAjouter("Le fournisseur est modifié avec succès", "success");
       this.ngOnInit();
+    },(error) => {
+      this.fournisseurService.notificationAjouter(error?.error?.text, "warning")
     });
 
     this.fournisseur = new Fournisseur();

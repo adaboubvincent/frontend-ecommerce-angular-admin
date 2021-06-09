@@ -4,11 +4,16 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { NotifierService } from 'angular-notifier';
-
+import 'angular2-notifications';
 //import * as $ from 'jquery';
-import 'bootstrap-notify';
+//import 'bootstrap-notify';
 //declare var $:JQueryStatic;
-declare var $:any;
+//declare var $:any;
+import * as jQuery from 'jquery';
+import 'bootstrap-notify';
+import { NotificationsService } from 'angular2-notifications';
+
+let $: any = jQuery;
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +25,7 @@ export class DaoService<T> {
     url: string;
     URL_BASE = environment.APIEndpoint;
     public objectSubject = new Subject<T[]>();
-    constructor(protected http: HttpClient) {
+    constructor(protected http: HttpClient,protected service: NotificationsService) {
         const APIEndpoint = environment.APIEndpoint;
         this.url = APIEndpoint + '/api/';
     }
@@ -64,9 +69,31 @@ export class DaoService<T> {
           type: type
         }); */
 
-        $.notify(message, type);
+        //$.notify({message: message, type: type});
 
         //this.notifier.notify(type, message);
+        if(type === "success"){
+          this.service.success("Success", message, {
+            position: ['top', 'right'],
+            timeOut: 4000,
+            animate: 'fade',
+            showProgressBar: true
+          })
+        }else if(type === "warning"){
+          this.service.warn("Warn", message, {
+            position: ['top', 'right'],
+            timeOut: 4000,
+            animate: 'fade',
+            showProgressBar: true
+          })
+        }else if(type === "danger"){
+          this.service.error("Error", message, {
+            position: ['top', 'right'],
+            timeOut: 4000,
+            animate: 'fade',
+            showProgressBar: true
+          })
+        }
     }
 
 

@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     user.password = this.formLogin.get('password')?.value;
     this.securityService.login(user).subscribe((res) => {
       let dict = res;
+      console.log(res);
       if(res.user?.is_superuser !== true){
         this.securityService.notificationAjouter("Vous ne pouvez pas se connecter sur ce site.\nVous devez avoir un accès Admin", "warning");
       }else{

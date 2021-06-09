@@ -15,7 +15,7 @@
 
 
     <div class="form-group">
-      <label for="nom">Nom du Produit : </label>
+      <label for="nom" class="text text-dark">Nom du Produit : </label>
       <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="Nom du Produit"
       [formControl]="nom" />
     </div>
@@ -28,7 +28,7 @@
 
 
     <div class="form-group">
-        <label for="categories">Catégorie : </label>
+        <label for="categories" class="text text-dark">Catégorie : </label>
         <select name="categories" id="categories" [formControl]="categories"  class="form-control" >
             <option *ngIf="modeModify && produit.categories?.length === 1" [ngValue]="categ"  class="form-control" selected>{{categ.nom}}</option>
             
@@ -44,7 +44,7 @@
 
     
     <div class="form-group">
-      <label for="prix">Prix : </label>
+      <label for="prix" class="text text-dark">Prix : </label>
       <input type="number" class="form-control" min="0"  id="prix" name="prix" placeholder="Le prix du produit" 
       [formControl]="prix"  />
     </div>
@@ -53,22 +53,22 @@
     </div>
 
     <div class="form-group">
-        <label for="diminu_price">Prix basé : </label>
+        <label for="diminu_price" class="text text-dark">Prix basé : </label>
         <input type="number" class="form-control" min="0"  id="diminu_price" name="diminu_price" placeholder="Le prix basé du produit" 
         [formControl]="diminu_price"  />
     </div>
 
     <div class="form-group">
-        <label for="quantite">Quantité : </label>
+        <label for="quantite" class="text text-dark">Quantité : </label>
         <input type="number" class="form-control" min="1"  id="quantite" name="quantite" placeholder="La Quantité du prix" 
         [formControl]="quantite"  />
     </div>
 
 
-    <div class="form-group">
-        <label for="caracteristique">Catéristique : </label>
-        <input type="texteara" class="form-control"  id="caracteristique" name="caracteristique" placeholder="Les caractéristiques du produit" 
-        [formControl]="caracteristique"  />
+    <div class="form-group shadow-textarea">
+        <label for="caracteristique" class="text text-dark">Catéristique : </label>
+        <textarea  class="form-control z-depth-1" rows="3"  id="caracteristique" name="caracteristique" 
+        placeholder="Les caractéristiques du produit" [formControl]="caracteristique"  ></textarea>
       </div>
       <div *ngIf="!modeModify" [hidden]="!caracteristique.valid || !caracteristique.pristine" class="alert alert-danger">
           Les caracteristiques sont obligatoires
@@ -80,7 +80,7 @@
 
 
     <div class="form-group">
-        <label for="fournisseur">Fournisseur : </label>
+        <label for="fournisseur" class="text text-dark">Fournisseur : </label>
         <select name="fournisseur" id="fournisseur" [formControl]="fournisseur"  class="form-control" >
             <option *ngIf="modeModify" [ngValue]="produit.fournisseur"  class="form-control" selected>{{produit.fournisseur?.nom}}</option>
             
@@ -95,9 +95,9 @@
     </div>
 
 
-    <button [disabled]="!nom.valid || !prix.valid || !categories.valid || !caracteristique.valid || !fournisseur.valid" type="submit" class="btn class-bg" *ngIf="!modeModify" (click)="addProduit()" >Ajouter un produit</button>
+    <button [disabled]="!nom.valid || !prix.valid || !categories.valid || !caracteristique.valid || !fournisseur.valid" type="submit" class="btn class-bg bg-primary" *ngIf="!modeModify" (click)="addProduit()" >Ajouter un produit</button>
 
-    <button [disabled]="!nom.valid || !prix.valid || !categories.valid || !caracteristique.valid || !fournisseur.valid" type="submit" class="btn class-bg" (click)="editProduit(idProduit)" *ngIf="modeModify" >Modifier ce produit</button>
+    <button [disabled]="!nom.valid || !prix.valid || !categories.valid || !caracteristique.valid || !fournisseur.valid" type="submit" class="btn class-bg bg-primary" (click)="editProduit(idProduit)" *ngIf="modeModify" >Modifier ce produit</button>
   </form>
 
 
