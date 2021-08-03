@@ -1,5 +1,5 @@
 <div>
-        
+
 
     <div class="display-elements">
         <div id="ajout-text">
@@ -40,7 +40,44 @@
             </div>
         </div>
         <div class="contenir-espace-left"></div>
-      </div>
-     
+
+
+
+   <div class="wrapper wrapper-content animated fadeInRight">
+     <div class="row">
+       <div class="col-md-3">
+         <div class="ibox">
+           <div class="ibox-content product-box">
+
+             <div class="product-imitation">
+               <img width="275" style="border: 2px solid black;" height="225" src="{{URL_BASE}}{{pr.image?.image}}" title="{{pr.nom}}" alt="{{pr.nom}}" (click)="showPageDetail(pr?.id)" />
+             </div>
+             <div class="product-desc">
+                                <span class="product-price">
+                                    {{pr.diminu_price}}
+                                </span>
+               <small class="text-muted">{{pr.categorie}}</small>
+               <a href="#" class="product-name"> {{pr.nom}}</a>
+
+
+
+               <div class="small m-t-xs">
+                 {{pr.caracteristique}}
+               </div>
+               <div class="m-t text-righ">
+                 <div class="elements-right">
+                   <i-bs name="trash-fill" style="cursor: pointer;" class="text-danger margin-left margin-right-i" (click)="deleteProduit(pr?.id)" ></i-bs>
+                   <i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="2rem" (click)="showPageEdit(pr?.id)" ></i-bs>
+                 </div>
+                 <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+
+    </div>
     </div>
 </div>

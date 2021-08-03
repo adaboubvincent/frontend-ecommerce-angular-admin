@@ -16,7 +16,7 @@ import { AdminListProductsComponent } from './admin-list-products/admin-list-pro
 
 const routes: Routes = [
   {path: '', component: AdminDashboardComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent},
+    {path: 'login', component: LoginComponent},
 
   {path: 'admin', children: [
     {path: 'produit', children: [
