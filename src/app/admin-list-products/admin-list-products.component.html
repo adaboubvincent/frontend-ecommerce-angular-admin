@@ -8,76 +8,37 @@
         </div>
     </div>
 
- <div class="row justify-content-around">
-    <div class="card" *ngFor="let pr of produits; let i=index" >
-        <img width="275" style="border: 2px solid black;" height="225" src="{{URL_BASE}}{{pr.image?.image}}" title="{{pr.nom}}" alt="{{pr.nom}}" (click)="showPageDetail(pr?.id)" />
 
-          <!-- <p class="card-text">Catégorie(s) : <span *ngIf="pr.categories?.length !== 1" >[</span> <span *ngFor="let cat of pr.categories" >{{cat.nom}}<span *ngIf="pr.categories?.length !== 1" >,</span></span><span *ngIf="pr.categories?.length !== 1" >]</span></p> -->
 
-        <div class="card-footer">
-            <div class="elements-left">
-                <p class="text-muted">{{pr.nom}}</p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6" *ngFor="let pr of produits; let i=index">
+            <div class="product-grid6">
+              <div class="product-image6">
+                <a href="#">
+                  <img class="pic-1" src="{{URL_BASE}}{{pr.image?.image}}" title="{{pr.nom}} " alt="{{pr.nom}}">
+                </a>
+              </div>
+              <div class="product-content">
+                <h3 class="title"><a href="#">{{pr.nom}}</a></h3>
+                <div class="price">{{pr.diminu_price}} CFA
+                  <span>{{pr.prix}} CFA </span>
+                </div>
+              </div>
+              <ul class="social">
+                <li (click)="showPageDetail()"><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                <li (click)="showPageEdit()"><a href="" data-tip="Modifier"><i class="fa fa-edit"></i></a></li>
+                <li (click)="deleteProduit()"><a href="" data-tip="supprimer"><i class="fa fa-trash"></i></a></li>
+              </ul>
             </div>
-            <div class="elements-right">
-                <p class="card-text">{{pr.diminu_price}}</p>
-            </div>
+          </div>
+
         </div>
-        <div class="card-footer">
-            <div class="elements-left">
-                <p class="text-muted">{{pr.quantite}}</p>
-            </div>
-            <div class="elements-right">
-                <p class="card-text">{{pr.prix}}</p>
-            </div>
-        </div>
-        <div class="card-footer">
-            <div class="elements-left">
-                <small class="text-muted"></small>
-            </div>
-            <div class="elements-right">
-                <i-bs name="trash-fill" style="cursor: pointer;" class="text-danger margin-left margin-right-i" (click)="deleteProduit(pr?.id)" ></i-bs>
-                <i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="2rem" (click)="showPageEdit(pr?.id)" ></i-bs>
-            </div>
-        </div>
-        <div class="contenir-espace-left"></div>
+      </div>
+      <hr>
 
 
+      <hr>
 
-   <div class="wrapper wrapper-content animated fadeInRight">
-     <div class="row">
-       <div class="col-md-3">
-         <div class="ibox">
-           <div class="ibox-content product-box">
-
-             <div class="product-imitation">
-               <img width="275" style="border: 2px solid black;" height="225" src="{{URL_BASE}}{{pr.image?.image}}" title="{{pr.nom}}" alt="{{pr.nom}}" (click)="showPageDetail(pr?.id)" />
-             </div>
-             <div class="product-desc">
-                                <span class="product-price">
-                                    {{pr.diminu_price}}
-                                </span>
-               <small class="text-muted">{{pr.categorie}}</small>
-               <a href="#" class="product-name"> {{pr.nom}}</a>
-
-
-
-               <div class="small m-t-xs">
-                 {{pr.caracteristique}}
-               </div>
-               <div class="m-t text-righ">
-                 <div class="elements-right">
-                   <i-bs name="trash-fill" style="cursor: pointer;" class="text-danger margin-left margin-right-i" (click)="deleteProduit(pr?.id)" ></i-bs>
-                   <i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="2rem" (click)="showPageEdit(pr?.id)" ></i-bs>
-                 </div>
-                 <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-
-    </div>
-    </div>
 </div>
