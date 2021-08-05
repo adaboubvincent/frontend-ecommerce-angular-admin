@@ -40,6 +40,7 @@ export class AdminBaseComponent implements OnInit {
       localStorage.setItem('username', "");
       localStorage.setItem('email', "");
       localStorage.setItem('is_superuser', "");
+      localStorage.setItem('role', "");
       this.securityService.notificationAjouter("Vous êtes en mode déconnecté !", "danger");
     });
 
@@ -63,6 +64,7 @@ export class AdminBaseComponent implements OnInit {
     localStorage.setItem('username', "");
     localStorage.setItem('email', "");
     localStorage.setItem('is_superuser', "");
+    localStorage.setItem('role', "");
 
    
     if(localStorage.getItem('token') === ""){
