@@ -1,10 +1,10 @@
 <div>
-        
+
 
     <div class="display-elements">
         <div id="ajout-text">
-            <h2 *ngIf="fournisseurs.length !== 0">Liste des fournisseurs</h2>
-            <h2 *ngIf="fournisseurs.length === 0">Aucun fournisseur trouvé</h2>
+            <h2 *ngIf="fournisseurs.length !== 0" style="color: #0f6674; margin-bottom: 20px; text-align: center; text-decoration: underline;">Nos fournisseurs</h2>
+            <h2 *ngIf="fournisseurs.length === 0" style="color: #0f6674">Aucun fournisseur trouvé</h2>
         </div>
     </div>
 
@@ -21,7 +21,7 @@
             <i-bs name="trash-fill" class="text-danger margin-left" (click)="deleteAuteur(aut.id)" ></i-bs>
             <i-bs name="pencil-square" class="text-primary margin-left" width="2rem" height="2rem" (click)="showEditPage(i)" ></i-bs>
         </div>
-        
+
     </div>
     <div class="contenir-personne"></div>
  -->
@@ -43,11 +43,11 @@
             </div>
             <div class="elements-right">
                 <i-bs name="trash-fill" style="cursor: pointer;" class="text-danger margin-left margin-right-i" (click)="deleteFournisseur(fn?.id)" ></i-bs>
-                <i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="2rem" (click)="showPageEdit(fn?.id)" ></i-bs>
+                <i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="1rem" (click)="showPageEdit(fn?.id)" ></i-bs>
             </div>
         </div>
         <div class="contenir-espace-left"></div>
       </div>
-     
+
     </div>
 </div>

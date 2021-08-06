@@ -3,8 +3,8 @@
 
 <div class="display-elements">
     <div id="ajout-text">
-        <h2 *ngIf="categories.length !== 0">Liste des catégories</h2>
-        <h2 *ngIf="categories.length === 0">Auncune catégorie enrégistrée</h2>
+        <h2 *ngIf="categories.length !== 0" style="color: #0f6674">Liste des catégories</h2>
+        <h2 *ngIf="categories.length === 0" style="color: #0f6674">Auncune catégorie enrégistrée</h2>
     </div>
 </div>
 
@@ -27,7 +27,7 @@
                 <td>{{cat.description}}</td>
                 <td>{{cat.categorieMere?.nom}}</td>
                 <td><i-bs name="trash-fill" style="cursor: pointer;" class="text-danger margin-left" (click)="deletecategorie(cat?.id)" ></i-bs></td>
-                <td><i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="2rem" (click)="showPageEdit(cat?.id)" ></i-bs></td>
+                <td><i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="1rem" height="2rem" (click)="showPageEdit(cat?.id)" ></i-bs></td>
             </tr>
         </tbody>
     </table>

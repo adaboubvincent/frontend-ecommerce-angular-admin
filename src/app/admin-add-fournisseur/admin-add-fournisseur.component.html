@@ -1,3 +1,4 @@
+<h2 style="color: #0f6674; text-align: center;">Enregistrer un fournisseur </h2>
 
 
 
@@ -15,10 +16,10 @@
         Le nom est obligatoire
     </div>
 
-    
+
     <div class="form-group">
       <label for="telephone" class="text text-dark">Téléphone : </label>
-      <input type="number" class="form-control"  id="telephone" name="telephone" placeholder="Téléphone du fournisseur" 
+      <input type="number" class="form-control"  id="telephone" name="telephone" placeholder="Téléphone du fournisseur"
       [formControl]="telephone"  />
     </div>
     <div *ngIf="!modeModify" [hidden]="!telephone.valid || !telephone.pristine" class="alert alert-danger">
@@ -30,7 +31,7 @@
 
     <div class="form-group">
         <label for="email" class="text text-dark">Email : </label>
-        <input type="email" class="form-control"  id="email" name="email" placeholder="Mail du fournisseur" 
+        <input type="email" class="form-control"  id="email" name="email" placeholder="Mail du fournisseur"
         [formControl]="email"  />
       </div>
       <div *ngIf="!modeModify" [hidden]="!email.valid || !email.pristine" class="alert alert-danger">
@@ -42,7 +43,7 @@
 
     <div class="form-group">
         <label for="adresse" class="text text-dark">Adresse : </label>
-        <input type="text" class="form-control"  id="adresse" name="adresse" placeholder="Adresse du fournisseur" 
+        <input type="text" class="form-control"  id="adresse" name="adresse" placeholder="Adresse du fournisseur"
         [formControl]="adresse"  />
     </div>
     <div *ngIf="!modeModify" [hidden]="!adresse.valid || !adresse.pristine" class="alert alert-danger">

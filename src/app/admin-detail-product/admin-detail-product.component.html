@@ -1,6 +1,7 @@
 
 <!-- <img *ngFor="let im of images" src="{{URL_BASE}}{{im.image}}" id="{{im.id}}" (click)="showOnImageClick(im.id)" alt="" class="image-view">
  -->
+<i class="fa fa-edit" (click)="showPageEdit(produit?.id)" width="2rem" style="color: #0d8ddb; cursor: pointer;"><a>modifier</a></i>
 <div class="row justify-content-around">
     <div class="col" id="image-detail">
         <div class="justify-content-start">
@@ -9,7 +10,7 @@
                 <i-bs name="trash-fill" class="text-danger margin-left margin-right-i" (click)="deleteImage(im?.id)" ></i-bs>
                 <div class="espace-element-bottom"></div>
             </div>
-             
+
         </div>
     </div>
     <div class="col">
@@ -22,6 +23,6 @@
         <p><span>Prix actuel : </span><span> {{produit.diminu_price}} </span></p>
         <p><span>Quantité totale : </span><span> {{produit.quantite}} </span></p>
         <p>{{produit.caracteristique}}</p>
-        
+
     </div>
 </div>

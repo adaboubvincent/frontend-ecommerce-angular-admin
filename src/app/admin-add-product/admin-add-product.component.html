@@ -1,4 +1,4 @@
-
+<h2 style="color: #0f6674; text-align: center;">Ajout de Produit</h2>
 
 
 
@@ -31,7 +31,7 @@
         <label for="categories" class="text text-dark">Catégorie : </label>
         <select name="categories" id="categories" [formControl]="categories"  class="form-control" >
             <option *ngIf="modeModify && produit.categories?.length === 1" [ngValue]="categ"  class="form-control" selected>{{categ.nom}}</option>
-            
+
             <option  *ngFor="let cat of categoriesListe" [ngValue]="cat"  class="form-control" >{{cat.nom}}</option>
         </select>
     </div>
@@ -42,10 +42,10 @@
         Le choix de la catégorie est obligatoire
     </div>
 
-    
+
     <div class="form-group">
       <label for="prix" class="text text-dark">Prix : </label>
-      <input type="number" class="form-control" min="0"  id="prix" name="prix" placeholder="Le prix du produit" 
+      <input type="number" class="form-control" min="0"  id="prix" name="prix" placeholder="Le prix du produit"
       [formControl]="prix"  />
     </div>
     <div [hidden]="prix.valid" class="alert alert-danger">
@@ -54,20 +54,20 @@
 
     <div class="form-group">
         <label for="diminu_price" class="text text-dark">Prix basé : </label>
-        <input type="number" class="form-control" min="0"  id="diminu_price" name="diminu_price" placeholder="Le prix basé du produit" 
+        <input type="number" class="form-control" min="0"  id="diminu_price" name="diminu_price" placeholder="Le prix basé du produit"
         [formControl]="diminu_price"  />
     </div>
 
     <div class="form-group">
         <label for="quantite" class="text text-dark">Quantité : </label>
-        <input type="number" class="form-control" min="1"  id="quantite" name="quantite" placeholder="La Quantité du prix" 
+        <input type="number" class="form-control" min="1"  id="quantite" name="quantite" placeholder="La Quantité du prix"
         [formControl]="quantite"  />
     </div>
 
 
     <div class="form-group shadow-textarea">
         <label for="caracteristique" class="text text-dark">Catéristique : </label>
-        <textarea  class="form-control z-depth-1" rows="3"  id="caracteristique" name="caracteristique" 
+        <textarea  class="form-control z-depth-1" rows="3"  id="caracteristique" name="caracteristique"
         placeholder="Les caractéristiques du produit" [formControl]="caracteristique"  ></textarea>
       </div>
       <div *ngIf="!modeModify" [hidden]="!caracteristique.valid || !caracteristique.pristine" class="alert alert-danger">
@@ -83,7 +83,7 @@
         <label for="fournisseur" class="text text-dark">Fournisseur : </label>
         <select name="fournisseur" id="fournisseur" [formControl]="fournisseur"  class="form-control" >
             <option *ngIf="modeModify" [ngValue]="produit.fournisseur"  class="form-control" selected>{{produit.fournisseur?.nom}}</option>
-            
+
             <option  *ngFor="let fn of fournisseurs" [ngValue]="fn"  class="form-control" >{{fn.nom}}</option>
         </select>
     </div>

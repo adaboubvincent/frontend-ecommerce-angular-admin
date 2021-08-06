@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Image } from '../models/Image';
 import { Produit } from '../models/Produit';
 import { ImageService } from '../services/image/image.service';
@@ -23,7 +23,7 @@ export class AdminDetailProductComponent implements OnInit {
   URL_BASE: string = this.produitService.URL_BASE;
   categorie: Categorie = new Categorie();
 
-  constructor(private produitService: ProductService, private route: ActivatedRoute, private imagesService: ImageService) { }
+  constructor(private produitService: ProductService, private route: ActivatedRoute,private routee: Router, private imagesService: ImageService,) { }
 
   ngOnInit(): void {
 
@@ -34,7 +34,7 @@ export class AdminDetailProductComponent implements OnInit {
         this.produit = this.findObject();
 
         this.categorie = this.produit.categories?.find((item, index) => index === 0) || new Categorie();
-        
+
         this.imagesService.imagesOfProduit(Number(this.idProduit)).subscribe((res: Image[]) => {
           this.images = res;
           this.imageChoice = this.images[0] || new Image();
@@ -53,26 +53,29 @@ export class AdminDetailProductComponent implements OnInit {
     img.image = "/media/default.jpg";
 
     this.imageChoice = this.images.find((item) => item.id === Number(id)) || img;
- 
-    
+
+
   }
 
 
   deleteImage(id: number | undefined = 0){
     if(confirm("Vous êtes sûr de supprimer cette image ?")){
-     
+
       this.imagesService.deletT("image/"+id+"/", this.images.find((item) => {
           return item.id === id
         })).subscribe(res =>{
             let etat = res;
             this.ngOnInit();
       });
-      
+
       this.messageAlert("Une image a été supprimée!");
     }
-    
+
   }
 
+  showPageEdit(id: number | undefined = 0){
+    this.routee.navigate(['admin/produit/modifier', id])
+  }
 
   messageAlert(message: string){
     this.afficheMessageAlert = true;

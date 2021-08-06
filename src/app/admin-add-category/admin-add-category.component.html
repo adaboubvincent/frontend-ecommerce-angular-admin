@@ -1,3 +1,4 @@
+<h2 style="color: #0f6674; text-align: center;">Ajouter une catégorie de produit</h2>
 
 
 
@@ -15,10 +16,10 @@
         Le nom est obligatoire
     </div>
 
-    
+
     <div class="form-group shadow-textarea">
       <label for="description" class="text text-dark">Description de la catégorie : </label>
-      <textarea class="form-control z-depth-1" rows="3"  id="description" name="description" 
+      <textarea class="form-control z-depth-1" rows="3"  id="description" name="description"
       placeholder="La description sur la catégorie" [formControl]="description"  ></textarea>
     </div>
     <div *ngIf="!modeModify" [hidden]="!description.valid || !description.pristine" class="alert alert-danger">
@@ -33,12 +34,12 @@
         <select name="categorieMere" id="categorieMere" [formControl]="categorieMere"  class="form-control" >
             <option [ngValue]="categorieEmpty"  class="form-control"></option>
             <option *ngIf="modeModify" [ngValue]="categorie.categorieMere"  class="form-control" selected>{{categorie.categorieMere?.nom}}</option>
-            
+
             <option  *ngFor="let cat of categories" [ngValue]="cat"  class="form-control" >{{cat.nom}}</option>
         </select>
       </div>
 
-    
+
     <button [disabled]="!nom.valid || !description.valid" type="submit" class="btn class-bg bg-primary" (click)="addCategorie()" *ngIf="!modeModify" >Ajouter une catégorie</button>
 
     <button [disabled]="!nom.valid || !description.valid" type="submit" class="btn class-bg bg-primary" (click)="editCategorie(idCategorie)" *ngIf="modeModify" >Modifier la catégorie</button>
