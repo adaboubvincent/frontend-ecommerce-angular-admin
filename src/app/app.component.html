@@ -1,1 +1,4 @@
-<ng-container><app-admin-base ></app-admin-base></ng-container>
+<ng-container>
+  <app-admin-base *ngIf="is_superuser && role=='ADMIN'"></app-admin-base>
+  <app-login *ngIf="role !='ADMIN'" ></app-login>
+</ng-container>

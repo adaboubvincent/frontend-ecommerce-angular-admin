@@ -1,3 +1,4 @@
+<!--
 <div class="container-scroller" >
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper align-items-stretch auth auth-img-bg">
@@ -17,7 +18,7 @@
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                       <span class="input-group-text bg-transparent border-right-0">
-                        <!-- <i class="mdi mdi-account-outline text-primary"></i> -->
+                        &lt;!&ndash; <i class="mdi mdi-account-outline text-primary"></i> &ndash;&gt;
                       </span>
                     </div>
                     <input formControlName="username" type="text" class="form-control form-control-lg border-left-0" id="" placeholder="Nom d'utilisateur">
@@ -28,7 +29,7 @@
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                       <span class="input-group-text bg-transparent border-right-0">
-                        <!-- <i class="mdi mdi-lock-outline text-primary"></i> -->
+                        &lt;!&ndash; <i class="mdi mdi-lock-outline text-primary"></i> &ndash;&gt;
                       </span>
                     </div>
                     <input formControlName="password" type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Mot de passe">
@@ -50,21 +51,56 @@
                   <button type="button" class="btn btn-google auth-form-btn flex-grow ml-1 bg-color-site text-danger">
                     <i-bs class="mr-2" name="google"></i-bs>Google </button>
                 </div>
-                <!-- <div class="text-center mt-4 font-weight-light"> Don't have an account? <a nam="register" class="text-primary">Create</a>
-                </div>-->
+                &lt;!&ndash; <div class="text-center mt-4 font-weight-light"> Don't have an account? <a nam="register" class="text-primary">Create</a>
+                </div>&ndash;&gt;
               </form>
             </div>
           </div>
 
-        <!--
+        &lt;!&ndash;
         <div class="brand-logo">
                 <img src="../../assets/images/Logo.png" alt="logo">
-              </div>-->
+              </div>&ndash;&gt;
 
         </div>
       </div>
-      <!-- content-wrapper ends -->
+      &lt;!&ndash; content-wrapper ends &ndash;&gt;
     </div>
-    <!-- page-body-wrapper ends -->
+    &lt;!&ndash; page-body-wrapper ends &ndash;&gt;
   </div>
-  <!-- container-scroller -->
+  &lt;!&ndash; container-scroller &ndash;&gt;
+-->
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+<div class="login" style="margin-top: 6%;">
+  <p STYLE="color: black; font-family: fantasy; font-size: 21px; text-align: center">Bienvenue sur MAYAKI, connectez vous pour continuer</p>
+  <h2 class="active"> Conexion </h2>
+  <form [formGroup]="formLogin">
+
+    <span STYLE="font-family: 'Lucida Console'; color: red; font-size: 17px;text-align: center;" id="invalid" hidden>Nom d'utilisateur et/ou mots de passe incorrects</span>
+    <span STYLE="font-family: 'Lucida Console'; color: red; font-size: 17px;text-align: center;" id="notFound" hidden>Vous devez dispposer les droits d'Admin</span>
+
+    <input type="text" formControlName="username" class="text" name="username">
+    <span STYLE="color: black">Nom d'utilisateur</span>
+
+    <br>
+
+    <br>
+
+    <input type="password" formControlName="password" class="text" name="password">
+    <span STYLE="color: black">Mot de passe</span>
+    <br>
+
+    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn bg-color-site text-white" style="width: 89%;
+  padding: 10px 20px;
+  display: block;
+  margin-top: 15px;
+  border-radius: 20px;"  (click)="submit()" [disabled]="!formLogin.valid">
+      Connexion
+    </button>
+
+
+    <a href="#" STYLE="color: red">Forgot Password?</a>
+  </form>
+
+</div>
