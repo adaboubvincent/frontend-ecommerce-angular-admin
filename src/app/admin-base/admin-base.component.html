@@ -25,13 +25,13 @@
             <i-bs name="menuUp" ></i-bs>
           </button>
           <div class="search-field d-none d-xl-block">
-            <form class="d-flex align-items-center h-100" action="#">
+            <form class="d-flex align-items-center h-100" (ngSubmit)="search()" action="#">
               <div class="input-group">
                 <div class="input-group-prepend bg-transparent">
                   <i-bs  class="input-group-text border-0" name="search" ></i-bs>
                   <!-- <i class="input-group-text border-0 fas fa-search"></i> -->
                 </div>
-                <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
+                <input type="text" id="search__input" class="form-control bg-transparent border-0" placeholder="Search products">
               </div>
             </form>
           </div>
@@ -250,7 +250,7 @@
             </li>
             <li class="nav-item sidebar-user-actions">
               <div class="sidebar-user-menu">
-                <a id="go-to-other-page-visiteur-action" href="http://127.0.01:8002" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+                <a id="go-to-other-page-visiteur-action" href="http://127.0.01:8882" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
                   <span class="menu-title">Aller sur la page des visiteurs</span></a>
               </div>
             </li>

@@ -12,13 +12,13 @@ body{
 
 
 #title-produit {
-    font-weight: bold; 
-    color: black; 
+    font-weight: bold;
+    color: black;
     margin-bottom: 37px;
 }
 
 #p-categorie, #title-produit{
-    text-align: center; 
+    text-align: center;
 }
 
 #image-detail {
@@ -26,6 +26,3 @@ body{
     height: 100px !important;
 }
 
-.image-detail-single {
-    background-color: #f0f1f6;
-}

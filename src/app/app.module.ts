@@ -31,6 +31,8 @@ import { ImageService } from './services/image/image.service';
 import { LivraisonService } from './services/livraison/livraison.service';
 import { PanierService } from './services/panier/panier.service';
 import { ProduitacommanderService } from './services/produitacommander/produitacommander.service';
+import {ChartsModule} from "ng2-charts";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -53,12 +55,14 @@ import { ProduitacommanderService } from './services/produitacommander/produitac
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ChartsModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxBootstrapIconsModule.pick(allIcons),
     SimpleNotificationsModule.forRoot(),
     BrowserAnimationsModule
-    
+
   ],
   providers: [
     ProductService,

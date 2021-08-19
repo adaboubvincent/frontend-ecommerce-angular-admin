@@ -32,7 +32,7 @@ export class AdminAddProductComponent implements OnInit {
   categorieEmpty: Categorie = new Categorie();
   fournisseurEmpty: Fournisseur = new Fournisseur();
 
-  
+
   nom = this.fb.control('', Validators.required);
   prix = this.fb.control(0, Validators.required);
   diminu_price = this.fb.control(0, Validators.required);
@@ -41,7 +41,7 @@ export class AdminAddProductComponent implements OnInit {
   categories = this.fb.control([], Validators.required);
   categorie = this.fb.control(new Categorie, Validators.required);
   fournisseur = this.fb.control(new Fournisseur, Validators.required);
-  produit: Produit = new Produit();
+  produit: any = new Produit();
   produitEmpty: Produit = new Produit();
 
 
@@ -50,8 +50,8 @@ export class AdminAddProductComponent implements OnInit {
   imageURL: string = "";
   images = this.fb.control("", Validators.required);
 
-  constructor(private produitService: ProductService, private categoryService: CategoryService, 
-    private fournisseurService: FournisseurService, private fb: FormBuilder, private route: ActivatedRoute, 
+  constructor(private produitService: ProductService, private categoryService: CategoryService,
+    private fournisseurService: FournisseurService, private fb: FormBuilder, private route: ActivatedRoute,
     private routeOther: Router, private imageService: ImageService) { }
 
   ngOnInit(): void {
@@ -68,7 +68,7 @@ export class AdminAddProductComponent implements OnInit {
         this.caracteristique.setValue(this.produit.caracteristique);
         this.categories.setValue(this.produit.categories);
         this.fournisseur.setValue(this.produit.fournisseur);
-        
+
         if(this.produit.categories?.length === 1){
           this.categ = this.produit.categories[0]
         }
@@ -94,7 +94,7 @@ export class AdminAddProductComponent implements OnInit {
         this.onSubmit(this.produit.id, this.images.value[i]);
        }
      }
-     
+
       this.produitService.notificationAjouter("Le produit est ajouté avec succès", "success");
       this.ngOnInit();
 
@@ -104,7 +104,7 @@ export class AdminAddProductComponent implements OnInit {
     this.messageAlert("Le produit "+this.produit?.nom+" est bien ajouté");
     this.produit = new Produit();
     this.resetData();
-    
+
   }
 
   editProduit(id: number){
@@ -126,7 +126,7 @@ export class AdminAddProductComponent implements OnInit {
       this.produitService.notificationAjouter(error?.error?.text, "warning")
     });
 
-    
+
 
     this.produit = new Produit();
 
@@ -143,7 +143,7 @@ export class AdminAddProductComponent implements OnInit {
     this.produit.quantite = this.quantite.value;
     this.produit.caracteristique = this.caracteristique.value;
     this.produit.categories = [this.categories.value];
-    
+
     this.produit.fournisseur = this.fournisseur.value;
   }
 
@@ -180,9 +180,9 @@ onChange(event: any) {
       file.push(event.target.files[i]);
     }
     this.images.setValue(file);
-    
+
   }
-  
+
 }
 
 onSubmit(id: number | undefined, file: File) {
@@ -199,7 +199,7 @@ onSubmit(id: number | undefined, file: File) {
       console.log(res);
       console.log(this.imageURL);
     },
-    (err) => {  
+    (err) => {
       console.log(err);
     }
   );

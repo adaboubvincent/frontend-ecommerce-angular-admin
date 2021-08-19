@@ -13,9 +13,13 @@ import { ListeCommandeComponent } from './liste-commande/liste-commande.componen
 import { AdminListCategoriesComponent } from './admin-list-categories/admin-list-categories.component';
 import { AdminListFournisseurComponent } from './admin-list-fournisseur/admin-list-fournisseur.component';
 import { AdminListProductsComponent } from './admin-list-products/admin-list-products.component';
+import {SearchComponent} from "./search/search.component";
 
 const routes: Routes = [
   {path: '', component: AdminDashboardComponent, canActivate: [AuthGuard]},
+  {path: '#', children: [
+    {path: 'recherche/:q', component: SearchComponent}
+      ]},
   //  {path: 'login', component: LoginComponent},
 
   {path: 'admin', children: [

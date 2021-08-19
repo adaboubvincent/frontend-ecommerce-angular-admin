@@ -1,6 +1,8 @@
 
 <!-- <img *ngFor="let im of images" src="{{URL_BASE}}{{im.image}}" id="{{im.id}}" (click)="showOnImageClick(im.id)" alt="" class="image-view">
  -->
+<div class="card">
+
 <i class="fa fa-edit" (click)="showPageEdit(produit?.id)" width="2rem" style="color: #0d8ddb; cursor: pointer;"><a>modifier</a></i>
 <div class="row justify-content-around">
     <div class="col" id="image-detail">
@@ -25,4 +27,5 @@
         <p>{{produit.caracteristique}}</p>
 
     </div>
+</div>
 </div>

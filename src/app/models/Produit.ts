@@ -7,7 +7,7 @@ export class Produit {
     public prix?: number;
     public diminu_price?: number;
     public caracteristique?: string;
-    public quantite?: number;
+    public quantite: number= 0;
     public categories?: Categorie[] = [];
     public fournisseur?: Fournisseur;
 

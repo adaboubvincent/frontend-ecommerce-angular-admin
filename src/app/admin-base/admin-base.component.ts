@@ -14,7 +14,7 @@ import { SecurityService } from '../services/user/security.service';
 export class AdminBaseComponent implements OnInit {
   adminLogin: User;
   numberOrderNotDeliver: number = 0;
-  constructor(private route: Router, private securityService: SecurityService, 
+  constructor(private route: Router, private securityService: SecurityService,
     private commandeService: CommandeService) {
     this.adminLogin = new User();
     this.adminLogin.username = "Inconnu";
@@ -44,15 +44,15 @@ export class AdminBaseComponent implements OnInit {
       this.securityService.notificationAjouter("Vous êtes en mode déconnecté !", "danger");
     });
 
-    
-    
+
+
   }
 
 
   showPageVisiteur(){
 	  localStorage.setItem('admin', "false");
 		this.route.navigate([''])
-	  
+
   }
 
   logout(){
@@ -66,7 +66,7 @@ export class AdminBaseComponent implements OnInit {
     localStorage.setItem('is_superuser', "");
     localStorage.setItem('role', "");
 
-   
+
     if(localStorage.getItem('token') === ""){
       window.location.reload();
     }
@@ -74,13 +74,21 @@ export class AdminBaseComponent implements OnInit {
     this.securityService.notificationAjouter("Cette action ne peut pas se produire", "danger");
   });
 
-	
-	
-    
+
+
+
+  }
+  search() {
+    let valeur = $('#search__input').val();
+    this.route.navigate(['#/recherche', valeur]);
+
+    this.route.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
 }
-/* 
+/*
 ,
     (error) => {
       localStorage.setItem('token', "");
