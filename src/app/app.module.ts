@@ -33,6 +33,7 @@ import { PanierService } from './services/panier/panier.service';
 import { ProduitacommanderService } from './services/produitacommander/produitacommander.service';
 import {ChartsModule} from "ng2-charts";
 import {CommonModule} from "@angular/common";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {CommonModule} from "@angular/common";
     ReactiveFormsModule,
     NgxBootstrapIconsModule.pick(allIcons),
     SimpleNotificationsModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
 
   ],
   providers: [

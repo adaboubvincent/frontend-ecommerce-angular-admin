@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Color, Label} from "ng2-charts";
 import {ChartDataSets, ChartOptions, ChartType} from "chart.js";
+import {Produit} from "../models/Produit";
+import {Image} from "../models/Image";
+import {Categorie} from "../models/Categorie";
+import {ProductService} from "../services/product/product.service";
+import {Router} from "@angular/router";
+import {ImageService} from "../services/image/image.service";
+import {ProduitImage} from "../models/ProduitImage";
 
 
 @Component({
@@ -10,7 +17,8 @@ import {ChartDataSets, ChartOptions, ChartType} from "chart.js";
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  produits: ProduitImage[] = [];
+  image: Image = new Image();
 
   public lineChartData: ChartDataSets[] = [
     { data: [75, 98, 80, 93, 56, 59, 80, 90, 54, 67, 37, 60], label: 'Commandes' },
@@ -30,11 +38,24 @@ export class AdminDashboardComponent implements OnInit {
   public lineChartType: ChartType = 'line';
   public lineChartPlugins = [];
 
+  constructor(private produitService: ProductService, private route: Router, private imagesService: ImageService) {
+  }
   ngOnInit(): void {
     if (localStorage.getItem('pageReload') === 'true'){
       localStorage.setItem('pageReload', 'false');
       window.location.reload();
     }
+    this.produitService.getAll("produits/").subscribe((pds: Produit[]) => {
+      this.produits = pds;
+      for(let i = 0; i < this.produits.length; i++){
+        this.imagesService.imageOfProduit(Number(this.produits[i].id)).subscribe((res: Image) => {
+          this.produits[i].image = res;
+          this.produits[i].categorie = 	this.produits[i].categories?.find((item, index) => index === 0) ||  new Categorie();
+        })
+      }
+
+
+    });
   }
 
 }

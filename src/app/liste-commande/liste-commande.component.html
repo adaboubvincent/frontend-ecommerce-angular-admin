@@ -3,17 +3,17 @@
 
 <div class="display-elements">
     <div id="ajout-text">
-        <h2 *ngIf="commandes.length !== 0">Liste des commandes</h2>
-        <h2 *ngIf="commandes.length === 0">Auncune commande enrégistrée</h2>
+        <h2 *ngIf="commandes.length !== 0" style="color: #0f6674; margin-bottom: 20px; text-align: center; text-decoration: underline;">Liste des commandes</h2>
+        <h2 *ngIf="commandes.length === 0" style="color: #0f6674; margin-bottom: 20px; text-align: center;">Auncune commande enrégistrée</h2>
     </div>
 </div>
 
 
 
 <div class="contenir-personne"></div>
-<div>
+<div class=" card ">
    <!--  <input type="text" id="myInput" (onkeyup)="myFunction()" placeholder="Search for names.."> -->
-    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <table id="dtBasicExample" class="table table-striped table-hover table-bordered table-sm" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th class="th-sm">Date</th>
@@ -35,7 +35,7 @@
                     <select>
                         <optgroup label="Liste des produits commandés">
                             <option *ngFor="let pr of commande.produitAcommandes">
-                                {{pr.produit?.nom}} 
+                                {{pr.produit?.nom}}
                                 (<span *ngIf="pr.produit?.diminu_price">{{pr.produit?.diminu_price}}</span><span *ngIf="!pr.produit?.diminu_price">{{pr.produit?.prix}}</span> * {{pr.quantite}})
                             </option>
                         </optgroup>
@@ -46,19 +46,19 @@
                         <button [ngClass]="{
                             'btn btn-danger dropdown-toggle': !commande.livraison?.estLivrer,
                             'btn btn-success dropdown-toggle': commande.livraison?.estLivrer
-                            }" 
-                            type="button" id="dropdownMenuButton" 
+                            }"
+                            type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                           <span *ngIf="!commande.livraison?.estLivrer">Pas encore livrée</span>
                           <span *ngIf="commande.livraison?.estLivrer">Est livrée</span>
-                          
+
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item bg-danger" 
+                          <a class="dropdown-item bg-danger"
                             style="cursor: pointer; color: white;"
                             (click)="nonLivrer(commande.livraison?.id)"  >Pas encore livrée</a>
-                          <a class="dropdown-item bg-success" 
+                          <a class="dropdown-item bg-success"
                             style="cursor: pointer; color: white;"
                             (click)="estLivrer(commande.livraison?.id)" >Est livrée</a>
                         </div>

@@ -37,13 +37,14 @@
           </div>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link " id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
                   <img src="../../../assets/images/faces/face28.jpg" alt="{{adminLogin.email}}" >
                 </div>
                 <div class="nav-profile-text">
                   <p class="mb-1 text-black" style="color: whitesmoke">{{adminLogin.username}}</p>
                 </div>
+                <mat-icon>arrow_drop_down</mat-icon>
               </a>
               <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
                 <div class="p-3 text-center bg-primary">
@@ -55,7 +56,7 @@
                     <span>Profile</span>
                     <span class="p-0">
                       <span class="badge badge-success">1</span>
-                      <i-bs name="person" ></i-bs>
+                      <mat-icon >user</mat-icon>
                       <!-- <i class="mdi mdi-account-outline ml-1"></i> -->
                     </span>
                   </a>
@@ -111,7 +112,7 @@
             <li class="nav-item nav-category">Menu</li>
             <li class="nav-item">
               <a class="nav-link" routerLink="">
-                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="icon-bg" ><mat-icon >dashboard</mat-icon></span>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
@@ -119,15 +120,15 @@
 
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
-                <span class="icon-bg"> <i class="mdi mdi-apps menu-icon"></i> </span>
+                <span class="icon-bg"> <mat-icon>category</mat-icon> </span>
                 <span class="menu-title">Catégories</span>
-                <i class="menu-arrow"></i>
+                <mat-icon>arrow_drop_down</mat-icon>
                 <!-- <i-bs name="chevronDown" ></i-bs> -->
               </a>
               <div class="collapse" id="page-layouts">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" routerLink="admin/categorie/ajouter"> Ajout Catégorie </a></li>
-                  <li class="nav-item"> <a class="nav-link" routerLink="admin/categorie/liste"> Liste des catégories </a></li>
+                  <li class="nav-item "> <a class="nav-link" routerLink="admin/categorie/ajouter"> Ajout Catégorie </a></li>
+                  <li class="nav-item "> <a class="nav-link" routerLink="admin/categorie/liste"> Liste des catégories </a></li>
                 </ul>
               </div>
             </li>
@@ -149,9 +150,9 @@
 
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts" aria-expanded="false" aria-controls="sidebar-layouts">
-                <span class="icon-bg"><i class="mdi mdi-playlist-play menu-icon"></i></span>
+                <span class="icon-bg"><mat-icon > shopping_bag</mat-icon></span>
                 <span class="menu-title">Produits</span>
-                <i class="menu-arrow"></i>
+                <mat-icon> arrow_drop_down</mat-icon>
               </a>
               <div class="collapse" id="sidebar-layouts">
                 <ul class="nav flex-column sub-menu">
@@ -177,9 +178,10 @@
 
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
+                <span class="icon-bg"><mat-icon>supervised_user_circle</mat-icon></span>
                 <span class="menu-title">Fournisseurs</span>
-                <i class="menu-arrow"></i>
+                <mat-icon>arrow_drop_down</mat-icon>
+
               </a>
               <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">
@@ -204,8 +206,8 @@
 
             <li class="nav-item">
               <a class="nav-link" routerLink="admin/commandes" >
-                <span class="icon-bg"><i class="mdi mdi-widgets menu-icon"></i></span>
-                <span class="menu-title">Liste des Commandes</span>
+                <span class="icon-bg"><mat-icon>shopping_cart</mat-icon></span>
+                <span class="menu-title">Commandes</span>
                 <div class="badge badge-danger">{{numberOrderNotDeliver}}</div>
               </a>
             </li>
@@ -250,8 +252,8 @@
             </li>
             <li class="nav-item sidebar-user-actions">
               <div class="sidebar-user-menu">
-                <a id="go-to-other-page-visiteur-action" href="http://127.0.01:8882" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
-                  <span class="menu-title">Aller sur la page des visiteurs</span></a>
+                <a id="go-to-other-page-visiteur-action" href="http://127.0.01:8882" class="nav-link"><mat-icon>contact_page</mat-icon>
+                  <span class="menu-title">page visiteurs</span></a>
               </div>
             </li>
           </ul>
