@@ -33,7 +33,7 @@
         <label for="categorieMere" class="text text-dark">Catégorie mère : </label>
         <select name="categorieMere" id="categorieMere" [formControl]="categorieMere"  class="form-control" >
             <option [ngValue]="categorieEmpty"  class="form-control"></option>
-            <option *ngIf="modeModify" [ngValue]="categorie.categorieMere"  class="form-control" selected>{{categorie.categorieMere?.nom}}</option>
+            <option *ngIf="modeModify" [ngValue]="categorie.categorieMere"  class="form-control"  [selected]="true">{{categorie.categorieMere?.nom}}</option>
 
             <option  *ngFor="let cat of categories" [ngValue]="cat"  class="form-control" >{{cat.nom}}</option>
         </select>

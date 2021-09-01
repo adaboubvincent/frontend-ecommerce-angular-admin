@@ -47,11 +47,9 @@ export class AdminAddCategoryComponent implements OnInit {
   addCategorie(){
     this.affecterData();
     this.categoryService.addT("ajout-categorie/",this.categorie).subscribe(res => {
-      console.log(res);
       this.categoryService.notificationAjouter("La categorie est ajoutée avec succès", "success");
       this.ngOnInit();
     },(error) => {
-      console.log(error);
       this.categoryService.notificationAjouter(error?.error?.text, "warning")
     });
     this.messageAlert("La categorie "+this.categorie?.nom+" est bien ajoutée");

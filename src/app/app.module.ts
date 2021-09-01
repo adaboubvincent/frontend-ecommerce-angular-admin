@@ -10,6 +10,7 @@ import { ProductService } from './services/product/product.service';
 import { FournisseurService } from './services/fournisseur/fournisseur.service';
 import { CategoryService } from './services/category/category.service';
 import { SecurityService } from './services/user/security.service';
+import { FournisseurUserService } from './services/fournisseur_user/fournisseur-user.service';
 import { AuthGuard } from './services/guard-auth/auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/guard-auth/token-interceptor.service';
@@ -34,6 +35,9 @@ import { ProduitacommanderService } from './services/produitacommander/produitac
 import {ChartsModule} from "ng2-charts";
 import {CommonModule} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
+import { AdminListfournisseurUserComponent } from './admin-listfournisseur-user/admin-listfournisseur-user.component';
+import { AdminModifierfournisseurUserComponent } from './admin-modifierfournisseur-user/admin-modifierfournisseur-user.component';
+import { AdminListProduitfournisseurComponent } from './admin-list-produitfournisseur/admin-list-produitfournisseur.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,10 @@ import {MatIconModule} from "@angular/material/icon";
     AdminListCategoriesComponent,
     AdminListFournisseurComponent,
     AdminListProductsComponent,
-    ListeCommandeComponent
+    ListeCommandeComponent,
+    AdminListfournisseurUserComponent,
+    AdminModifierfournisseurUserComponent,
+    AdminListProduitfournisseurComponent
 
   ],
   imports: [
@@ -77,6 +84,7 @@ import {MatIconModule} from "@angular/material/icon";
     LivraisonService,
     PanierService,
     ProduitacommanderService,
+    FournisseurUserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

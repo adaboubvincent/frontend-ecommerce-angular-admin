@@ -1,13 +1,8 @@
+import { Fournisseur } from './Fournisseur';
 import { User } from './User';
 
 
-export class FournisseurUser{
-    public id?: number;
-    public nom?: string;
-    public telephone?: number | string;
-    public adresse?: string;
-    public email?: string;
-    public estPerson?: boolean;
+export class FournisseurUser extends Fournisseur {
     public activer?: boolean;
     public utilisateur?: User;
 }

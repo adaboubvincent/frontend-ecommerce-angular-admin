@@ -3,9 +3,15 @@
 
     <div class="display-elements">
         <div id="ajout-text">
-            <h2 *ngIf="produits.length !== 0" style="color: #0f6674">Tous les produits</h2>
+            <h2 *ngIf="produits.length !== 0" style="color: #0f6674">
+                Tous les produits 
+                <span *ngIf="!fournisseur.estPerson">du fournisseur </span>
+                <span *ngIf="fournisseur.estPerson">de la boutique </span>
+                {{fournisseur.nom}}
+            </h2>
             <h2 *ngIf="produits.length === 0" style="color: #0f6674">Aucun produit trouvé</h2>
         </div>
+        <br />
     </div>
 
   <div class="container card shadow rounded">
@@ -18,8 +24,8 @@
             </a>
             <ul class="social">
               <li ><a  (click)="showPageDetail(pr?.id)" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-              <li ><a (click)="showPageEdit(pr?.id)" data-tip="Modifier"><i class="fa fa-edit"></i></a></li>
-              <li ><a (click)="deleteProduit(pr?.id)" data-tip="supprimer"><i class="fa fa-trash"></i></a></li>
+              <!-- <li ><a  data-tip="Modifier"><i class="fa fa-edit"></i></a></li>
+              <li ><a  data-tip="supprimer"><i class="fa fa-trash"></i></a></li> -->
 
             </ul>
 

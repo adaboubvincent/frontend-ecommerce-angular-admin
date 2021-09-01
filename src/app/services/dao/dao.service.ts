@@ -49,7 +49,7 @@ export class DaoService<T> {
     }
 
     get(url: string, id: number): Observable<T>{
-        return this.http.get<T>(this.url + url + id);
+        return this.http.get<T>(this.url + url + id + "/");
     }
 
     notificationAjouter(message: string, type: string ="success"){
