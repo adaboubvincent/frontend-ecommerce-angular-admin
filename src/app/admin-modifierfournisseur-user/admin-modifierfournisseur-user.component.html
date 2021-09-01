@@ -1,0 +1,53 @@
+<h2 style="color: #0f6674; text-align: center;">Changer le Status 
+     
+    <span *ngIf="!fournisseur.estPerson">du fournisseur : </span>
+    <span *ngIf="fournisseur.estPerson">de la boutique : </span>
+
+</h2>
+
+
+
+
+<form>
+    <div class="form-group">
+      <label for="nom" class="text text-dark">
+          <span *ngIf="fournisseur.estPerson">Nom du fournisseur : </span>
+          <span *ngIf="!fournisseur.estPerson">Nom de la boutique : </span>
+        </label>
+      <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="Enter le nom"
+       [(ngModel)]="fournisseur.nom" [disabled]="true" />
+    </div>
+
+
+    <div class="form-group">
+      <label for="telephone" class="text text-dark">Téléphone : </label>
+      <input type="number" class="form-control"  id="telephone" name="telephone" placeholder="Téléphone du fournisseur"
+      [(ngModel)]="fournisseur.telephone" [disabled]="true" />
+    </div>
+
+    <div class="form-group">
+        <label for="email" class="text text-dark">Email : </label>
+        <input type="email" class="form-control"  id="email" name="email" placeholder="Mail du fournisseur"
+        [(ngModel)]="fournisseur.email" [disabled]="true"   />
+      </div>
+
+    <div class="form-group">
+        <label for="adresse" class="text text-dark">Adresse : </label>
+        <input type="text" class="form-control"  id="adresse" name="adresse" placeholder="Adresse du fournisseur"
+        [(ngModel)]="fournisseur.adresse" [disabled]="true" />
+    </div>
+
+    <div class="form-group">
+        <div class="form-check form-switch" id="checkbox">
+            <input type="checkbox" class="form-check-input"  id="estPerson" name="estPerson" [formControl]="status"  />
+            <label for="estPerson" class="form-check-label"> Activer </label>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn class-bg bg-primary" (click)="editFournisseur()" >
+        Changer Son status
+    </button>
+  </form>
+
+

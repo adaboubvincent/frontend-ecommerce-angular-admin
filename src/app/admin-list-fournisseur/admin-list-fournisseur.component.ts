@@ -18,12 +18,15 @@ export class AdminListFournisseurComponent implements OnInit {
   fournisseurChoix: Fournisseur | undefined = new Fournisseur();
 
   fournisseurs: Fournisseur[] = [];
+  fournisseurss: Fournisseur[] = [];
+  checked = true;
 
   constructor(private fournisseurService: FournisseurService, private route: Router) { }
 
   ngOnInit(): void {
     this.fournisseurService.getAll("fournisseurs/").subscribe((fns: Fournisseur[]) => {
       this.fournisseurs = fns;
+      this.fournisseurss = fns;
     });
   }
 
@@ -60,6 +63,19 @@ export class AdminListFournisseurComponent implements OnInit {
     $('.no-action').click((event) => event.preventDefault());
     
     this.fournisseurChoix = this.fournisseurs.find((item) => item.id === Number(id));
+  }
+
+  boutique(){
+    this.checked = false;
+    this.fournisseurs = this.fournisseurss.filter((item) => item.estPerson === false);
+  }
+  personne(){
+    this.checked = false;
+    this.fournisseurs = this.fournisseurss.filter((item) => item.estPerson === true);
+  }
+
+  tous(){
+    this.ngOnInit();
   }
 
 }

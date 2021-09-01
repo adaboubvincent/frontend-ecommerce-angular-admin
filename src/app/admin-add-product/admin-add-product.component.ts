@@ -196,8 +196,6 @@ onSubmit(id: number | undefined, file: File) {
     (res) => {
       this.response = res;
       this.imageURL = `${this.imageService.URL_BASE}${res}`;
-      console.log(res);
-      console.log(this.imageURL);
     },
     (err) => {
       console.log(err);

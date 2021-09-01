@@ -14,6 +14,9 @@ import { AdminListCategoriesComponent } from './admin-list-categories/admin-list
 import { AdminListFournisseurComponent } from './admin-list-fournisseur/admin-list-fournisseur.component';
 import { AdminListProductsComponent } from './admin-list-products/admin-list-products.component';
 import {SearchComponent} from './search/search.component';
+import { AdminListfournisseurUserComponent } from './admin-listfournisseur-user/admin-listfournisseur-user.component';
+import { AdminModifierfournisseurUserComponent } from './admin-modifierfournisseur-user/admin-modifierfournisseur-user.component';
+import { AdminListProduitfournisseurComponent } from './admin-list-produitfournisseur/admin-list-produitfournisseur.component';
 
 const routes: Routes = [
   {path: '', component: AdminDashboardComponent, canActivate: [AuthGuard]},
@@ -27,13 +30,16 @@ const routes: Routes = [
       {path: 'detail/:id', component: AdminDetailProductComponent},
       {path: 'modifier/:id', component: AdminAddProductComponent},
       {path: 'ajouter', component: AdminAddProductComponent},
-      {path: 'liste', component: AdminListProductsComponent}
+      {path: 'liste', component: AdminListProductsComponent},
+      {path: 'liste/fournisseur/:id', component: AdminListProduitfournisseurComponent}
     ]},
     {path: 'fournisseur', children: [
       {path: 'detail/:id', component: AdminDetailFournisseurComponent},
       {path: 'modifier/:id', component: AdminAddFournisseurComponent},
       {path: 'ajouter', component: AdminAddFournisseurComponent},
-      {path: 'liste', component: AdminListFournisseurComponent}
+      {path: 'liste', component: AdminListFournisseurComponent},
+      {path: 'inscris/liste', component: AdminListfournisseurUserComponent},
+      {path: 'inscris/modifier/:id', component: AdminModifierfournisseurUserComponent}
     ]},
     {path: 'categorie', children: [
       {path: 'detail/:id', component: AdminDetailCategoryComponent},

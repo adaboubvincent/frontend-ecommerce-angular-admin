@@ -50,7 +50,6 @@ export class AdminAddFournisseurComponent implements OnInit {
   addFournisseur(){
     this.affecterData();
     this.fournisseurService.addT("ajout-fournisseur/",this.fournisseur).subscribe(res => {
-      console.log(res);
       this.fournisseurService.notificationAjouter("Le fournisseur est ajouté avec succès", "success");
       this.ngOnInit();
     },(error) => {

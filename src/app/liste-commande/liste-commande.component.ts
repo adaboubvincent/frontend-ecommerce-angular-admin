@@ -61,7 +61,6 @@ export class ListeCommandeComponent implements OnInit {
   }
 
   estLivrer(id: number | undefined){
-    console.log("click", id);
     let livraison = new Livraison();
     livraison.estLivrer = true;
     this.livraisonService.modifyT("livraison/"+id+"/", livraison).subscribe((res) => {
@@ -70,7 +69,6 @@ export class ListeCommandeComponent implements OnInit {
   }
 
   nonLivrer(id: number | undefined){
-    console.log("click", id);
     let livraison = new Livraison();
     livraison.estLivrer = false;
     this.livraisonService.modifyT("livraison/"+id+"/", livraison).subscribe((res) => {

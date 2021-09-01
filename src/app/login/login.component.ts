@@ -25,8 +25,6 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('username'));
-    console.log(localStorage.getItem('token'));
   }
 
   submit(){
@@ -35,7 +33,6 @@ export class LoginComponent implements OnInit {
     user.password = this.formLogin.get('password')?.value;
     this.securityService.login(user).subscribe((res) => {
       let dict = res;
-      console.log(res);
       if(res.user?.role != 'ADMIN'){
         //document.getElementById("notFound")?.removeAttribute("hidden");
         this.securityService.notificationAjouter("Vous ne pouvez pas se connecter sur ce site.\nVous devez avoir un accès Admin", "warning");

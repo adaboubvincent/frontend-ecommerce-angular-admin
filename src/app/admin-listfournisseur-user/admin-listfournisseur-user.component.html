@@ -5,10 +5,11 @@
         <div id="ajout-text">
             <h2 *ngIf="fournisseurs.length !== 0" 
                 style="color: #0f6674; margin-bottom: 20px; text-align: center; text-decoration: underline; display:inline-block;">
-                Nos fournisseurs</h2>
+                Les fournisseurs Inscris</h2>
             <h2 *ngIf="fournisseurs.length === 0" 
-                style="color: #0f6674; margin-bottom: 20px; text-align: center;">Aucun fournisseur trouvé</h2>
-        
+                style="color: #0f6674; margin-bottom: 20px; text-align: center;  display:inline-block;">
+                Aucun fournisseur trouvé</h2>
+            
             <div class="form-check form-switch" style="display: inline-block; margin-left: 75px;">
                 <input type="radio" class="form-check-input"  id="Tous" name="fournisseur" (click)="tous()" [checked]="checked" />
                 <label for="Tous" class="form-check-label"> Tous</label>
@@ -24,28 +25,12 @@
                 <label for="Personne" class="form-check-label"> Personne</label>
             </div>
 
+
         </div>
         <br />
     </div>
 
 
-<!--     <div class="contenir-personne"></div>
-    <div class="row" *ngFor="let fn of fournisseurs; let i=index"  >
-        <div class="col-sm-4" >
-            <a href="#{{fn.nom}}-{{fn.email}}" class="no-action" (click)="noAction(i)" data-toggle="modal" data-target="#exampleModalCenter" ><img class="rounded-circle" width="75" height="75" src="../../assets/images/mayaki/user_001.jpg" title="Profile" alt="Profile"></a>
-        </div>
-        <div class="col-sm-6" id="center-text">
-            <span class="sub-contenir">{{fn.nom}} {{fn.email}} {{fn.telephone}} {{fn.adresse}} </span>
-        </div>
-        <div class="col-sm-2" id="center-trois-poits">
-            <i-bs name="trash-fill" class="text-danger margin-left" (click)="deleteAuteur(aut.id)" ></i-bs>
-            <i-bs name="pencil-square" class="text-primary margin-left" width="2rem" height="2rem" (click)="showEditPage(i)" ></i-bs>
-        </div>
-
-    </div>
-    <div class="contenir-personne"></div>
- -->
- <!-- row justify-content-between  -->
  <div class="row justify-content-around">
     <div class="card" *ngFor="let fn of fournisseurs; let i=index" >
         <img class="card-img-top" width="75" height="225" src="../../assets/images/mayaki/user_001.jpg" title="{{fn.nom}}" alt="{{fn.nom}}" />
@@ -62,8 +47,8 @@
                 <small *ngIf="fn.estPerson" class="text-muted">Une boutique</small>
             </div>
             <div class="elements-right">
-                <i-bs name="trash-fill" style="cursor: pointer;" class="text-danger margin-left margin-right-i" (click)="deleteFournisseur(fn?.id)" ></i-bs>
                 <i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="1rem" (click)="showPageEdit(fn?.id)" ></i-bs>
+                <i-bs name="pencil-square" style="cursor: pointer;" class="text-primary margin-left" width="2rem" height="1rem" (click)="showPageListProduit(fn?.id)" ></i-bs>
             </div>
         </div>
         <div class="contenir-espace-left"></div>
