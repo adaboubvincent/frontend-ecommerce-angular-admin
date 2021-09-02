@@ -35,7 +35,7 @@ export class AdminDashboardComponent implements OnInit {
     },
   ];
   public lineChartLegend = true;
-  public lineChartType: ChartType = 'line';
+  public lineChartType: ChartType = 'bar';
   public lineChartPlugins = [];
 
   constructor(private produitService: ProductService, private route: Router, private imagesService: ImageService) {
