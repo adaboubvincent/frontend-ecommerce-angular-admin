@@ -26,9 +26,12 @@
           </div>
           <div class="product-content">
             <h3 class="title"><a href="#">{{pr.nom}}</a></h3>
-            <div class="price">
+            <div class="price" *ngIf="pr.diminu_price" style="color: #0f6674">
               {{pr.diminu_price}} CFA
-              <span>{{pr.prix}} CFA</span>
+              <span style="color: #ff0000">{{pr.prix}} CFA</span>
+            </div>
+            <div class="price" *ngIf="!pr.diminu_price" style="color: #0f6674">
+              {{pr.prix}} CFA
             </div>
             <ul class="rating">
               <li class="fa fa-star"></li>
